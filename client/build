@@ -1,7 +1,13 @@
 #!/bin/bash
 
 # compile
-gcc openarmor.c -o openarmor -Wall
+gcc \
+	openarmor.c \
+	json.c \
+	$(pkg-config --libs --cflags libcurl) \
+	$(pkg-config --libs --cflags json-c) \
+	-o openarmor \
+	-Wall
 
 # check for run flag
 if [[ $* == *--and-run* ]];
