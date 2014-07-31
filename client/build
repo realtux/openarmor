@@ -2,19 +2,19 @@
 
 # compile
 gcc \
-	openarmor.c \
-	json.c \
-	$(pkg-config --libs --cflags libcurl) \
-	$(pkg-config --libs --cflags json-c) \
-	-o openarmor \
-	-Wall
+    openarmor.c \
+    api.c \
+    $(pkg-config --libs --cflags libcurl) \
+    $(pkg-config --libs --cflags json-c) \
+    -o openarmor \
+    -Wall
 
 # check for run flag
 if [[ $* == *--and-run* ]];
 then
-	# run openarmor
-	./openarmor
+    # run openarmor
+    ./openarmor
 
-	# insert a newline
-	echo ""
+    # insert a newline
+    echo ""
 fi
