@@ -4,6 +4,7 @@
 gcc \
     openarmor.c \
     api.c \
+    functions.c \
     $(pkg-config --libs --cflags libcurl) \
     $(pkg-config --libs --cflags json-c) \
     -o openarmor \
