@@ -59,7 +59,7 @@ char * docurl(void) {
 
         init_string(&s);
 
-        curl_easy_setopt(curl, CURLOPT_URL, "http://httpbin.org/get");
+        curl_easy_setopt(curl, CURLOPT_URL, "http://dev8/home/test");
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);

@@ -42,8 +42,17 @@ char * oa_json_get_string(json_object * jobj, char * string_name) {
     return NULL;
 }
 
+int oa_array_length(json_object * jarray) {
+    return json_object_array_length(jarray);
+}
+
+char * oa_as_string(json_object * obj) {
+    return (char *) json_object_get_string(obj);
+}
+
 void lookup_user() {
-    char * s = docurl();
+    //char * s = docurl();
+    char * s = "{\"name\":\"brian\",\"age\":29,\"friends\":[\"kevin\",\"nate\",\"ryan\"],\"messages\":{\"for_someone\":\"hi\",\"for_anyone\":\"no\"}}";
 
     // convert to json
     json_object * jobj = json_tokener_parse(s);   
@@ -51,13 +60,25 @@ void lookup_user() {
 
     printf("%s\n", json_object_to_json_string(jobj));
 
-    char * origin = oa_json_get_string(jobj, "origin");
+    char * name = oa_json_get_string(jobj, "name");
 
-    printf("origin: %s\n", origin);
+    printf("name: %s\n", name);
 
-    //json_object * headers = oa_json_get_object(jobj, "headers");
+    json_object * messages = oa_json_get_object(jobj, "messages");
 
-    //char * connection = oa_json_get_string(headers, "Connection");
+    char * message = oa_json_get_string(messages, "for_someone");
 
-    //printf("connection: %s\n", connection);
+    printf("for_someone: %s\n", message);
+
+    json_object * friends = oa_json_get_array(jobj, "friends");
+
+    int i;
+    int friends_length = oa_array_length(friends);
+    json_object * frien;
+
+    for (i = 0; i < friends_length; ++i) {
+        frien = json_object_array_get_idx(friends, i);
+
+        printf("friend: %s\n", oa_as_string(frien));
+    }
 }
