@@ -4,6 +4,8 @@
 #include <string.h>
 #include <curl/curl.h>
 
+#include "map_lib.h"
+
 struct string {
     char * contents;
     size_t len;
@@ -46,7 +48,7 @@ size_t write_result(void * ptr, size_t size, size_t nmemb, struct string * s) {
     return size * nmemb;
 }
 
-char * docurl(void) {
+char * docurl(const char * action, struct map_t * params) {
     CURL *curl;
     CURLcode res;
 
@@ -59,10 +61,27 @@ char * docurl(void) {
 
         init_string(&s);
 
-        curl_easy_setopt(curl, CURLOPT_URL, "http://dev8/home/test");
+        curl_easy_setopt(curl, CURLOPT_URL, action);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
+        // add params for the post
+        char * final_params = malloc(1);
+
+        struct map_t * p;
+        for (p = params; p != NULL; p = p->nxt) {
+            // reallocate
+            final_params = realloc(final_params, strlen(final_params) + strlen(p->name) + strlen(p->value) + 3);
+
+            strcat(final_params, p->name);
+            strcat(final_params, "=");
+            strcat(final_params, p->value);
+            strcat(final_params, "&");
+        }
+
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, final_params);
+
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_result);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
 
@@ -74,6 +93,7 @@ char * docurl(void) {
             final_string = s.contents;
         }
 
+        free(final_params);
         free(s.contents);
 
         curl_easy_cleanup(curl);

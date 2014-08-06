@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "api.h"
+#include "map_lib.h"
 
 enum json_type type;
 
@@ -51,34 +52,16 @@ char * oa_as_string(json_object * obj) {
 }
 
 void lookup_user() {
-    //char * s = docurl();
-    char * s = "{\"name\":\"brian\",\"age\":29,\"friends\":[\"kevin\",\"nate\",\"ryan\"],\"messages\":{\"for_someone\":\"hi\",\"for_anyone\":\"no\"}}";
+    // params
+    struct map_t * params = map_create();
 
-    // convert to json
+    map_set(params, "brian", "cool");
+    map_set(params, "brian2", "cool2");
+    map_set(params, "brian3", "cool3");
+
+    char * s = docurl(ACTION_LOOKUP_USER, params);
+
     json_object * jobj = json_tokener_parse(s);   
-    //json_parse(jobj);  
 
     printf("%s\n", json_object_to_json_string(jobj));
-
-    char * name = oa_json_get_string(jobj, "name");
-
-    printf("name: %s\n", name);
-
-    json_object * messages = oa_json_get_object(jobj, "messages");
-
-    char * message = oa_json_get_string(messages, "for_someone");
-
-    printf("for_someone: %s\n", message);
-
-    json_object * friends = oa_json_get_array(jobj, "friends");
-
-    int i;
-    int friends_length = oa_array_length(friends);
-    json_object * frien;
-
-    for (i = 0; i < friends_length; ++i) {
-        frien = json_object_array_get_idx(friends, i);
-
-        printf("friend: %s\n", oa_as_string(frien));
-    }
 }
