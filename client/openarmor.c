@@ -18,12 +18,12 @@ void render_menu() {
 
 int main() {
     render_title();
-    render_menu();
 
     char buffer[8];
     int final_selection;
 
     makeachoice:
+    render_menu();
 
     // get the user's selection
     printf("\nWhat would you like to do? ");
