@@ -9,7 +9,7 @@ module.exports = {
     },
 
     test : function(req, res) {
-        Users.findOne('53e43f2aecf2e12fad30fdd1').done(function(err, user) {
+        Users.find().done(function(err, user) {
             res.send(user)
         });
 
