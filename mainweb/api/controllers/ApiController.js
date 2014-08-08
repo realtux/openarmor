@@ -6,7 +6,7 @@ module.exports = {
                 username : req.body.username
             })
             .done(function(err, user) {
-                res.setHeader('Content-Type', 'text/json');
+                res.setHeader('Content-Type', 'application/json');
 
                 // no user?
                 if (user == undefined) {

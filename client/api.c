@@ -11,41 +11,26 @@ struct string {
     size_t len;
 };
 
-void init_string(struct string * s) {
-    // allocate
-    s->len = 0;
-    s->contents = malloc(s->len + 1);
-
-    // make sure the pointer is good
-    if (s->contents == NULL) {
-        fprintf(stderr, "malloc() failed, shit\n");
-
-        exit(EXIT_FAILURE);
-    }
-
-    s->contents[0] = '\0';
+void * myrealloc(void * ptr, size_t size) {
+    if (ptr)
+        return realloc(ptr, size);
+    else
+        return malloc(size);
 }
 
-size_t write_result(void * ptr, size_t size, size_t nmemb, struct string * s) {
-    // get the new length of the buffer
-    size_t new_len = s->len + size * nmemb;
+size_t write_result(void * ptr, size_t size, size_t nmemb, struct string * data) {
+    size_t realsize = size * nmemb;
+    struct string *mem = (struct string *)data;
 
-    // reallocate the buffer size
-    s->contents = realloc(s->contents, new_len + 1);
+    mem->contents = (char *)myrealloc(mem->contents, mem->len + realsize + 120);
 
-    // make sure the pointer is good
-    if (s->contents == NULL) {
-        fprintf(stderr, "malloc() failed, shit\n");
-
-        exit(EXIT_FAILURE);
+    if (mem->contents) {
+        memcpy(&(mem->contents[mem->len]), ptr, realsize);
+        mem->len += realsize;
+        mem->contents[mem->len] = 0;
     }
-
-    // copy the memory
-    memcpy(s->contents + s->len, ptr, size * nmemb);
-    s->contents[new_len] = '\0';
-    s->len = new_len;
-
-    return size * nmemb;
+    
+    return realsize;
 }
 
 char * docurl(const char * action, struct map_t * params) {
@@ -58,8 +43,8 @@ char * docurl(const char * action, struct map_t * params) {
 
     if (curl) {
         struct string s;
-
-        init_string(&s);
+        s.contents = NULL;
+        s.len = 0;
 
         curl_easy_setopt(curl, CURLOPT_URL, action);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
@@ -68,11 +53,12 @@ char * docurl(const char * action, struct map_t * params) {
 
         // add params for the post
         char * final_params = malloc(1);
+        strcpy(final_params, "");
 
         struct map_t * p;
         for (p = params; p != NULL; p = p->nxt) {
             // reallocate
-            final_params = realloc(final_params, strlen(final_params) + strlen(p->name) + strlen(p->value) + 3);
+            final_params = myrealloc(final_params, strlen(final_params) + strlen(p->name) + strlen(p->value) + 3);
 
             strcat(final_params, p->name);
             strcat(final_params, "=");
@@ -83,7 +69,7 @@ char * docurl(const char * action, struct map_t * params) {
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, final_params);
 
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_result);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *) &s);
 
         res = curl_easy_perform(curl);
 
