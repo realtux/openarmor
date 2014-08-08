@@ -1,9 +1,10 @@
-#include <stdio.h>
 #include <json.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "api.h"
 #include "map_lib.h"
+#include "utilities.h"
 
 enum json_type type;
 
@@ -55,9 +56,19 @@ void lookup_user() {
     // params
     struct map_t * params = map_create();
 
-    map_set(params, "brian", "cool");
-    map_set(params, "brian2", "cool2");
-    map_set(params, "brian3", "cool3");
+    char buffer[64];
+
+    printf("\nWhat is the user's username? ");
+    fgets(buffer, sizeof(buffer), stdin);
+
+    // check for newline and eat extra data if present
+    if (strchr(buffer, '\n') == NULL) {
+        int ch;
+
+        while ((ch = getchar()) != '\n');
+    }
+    
+    map_set(params, "username", trim(buffer));
 
     char * s = docurl(ACTION_LOOKUP_USER, params);
 
