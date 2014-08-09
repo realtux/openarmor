@@ -8,15 +8,6 @@ module.exports = {
         res.view('home/about.swig', {});
     },
 
-    test : function(req, res) {
-        Users.find().done(function(err, user) {
-            res.send(user)
-        });
-
-        //res.send();
-        //res.view('home/about.swig', {});
-    },
-
     _config: {}
 
 };

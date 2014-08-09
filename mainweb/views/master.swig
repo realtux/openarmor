@@ -47,7 +47,7 @@
 
         .menu_set > a {
             display: inline-block;
-            padding: 16px 20px;
+            padding: 4px 14px;
             color: #9DFF86;
             font-size: 16px;
         }
@@ -55,6 +55,7 @@
         .menu_set > a:hover {
             text-decoration: none;
             color: #fff !important;
+            background: #000;
         }
 
         .green {
@@ -75,16 +76,19 @@
     </style>
 </head>
 <body>
-<div style="display: block; background: #1F1F1F; padding: 40px;">
+<div style="display: block; background: #1F1F1F; padding: 40px 40px 0px 40px;">
     <div class="container black_stuff">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h1 style="font-size: 46px;"><i class="fa fa-shield"></i> OpenArmor</h1>
             </div>
-            <div class="col-md-6 right">
+        </div>
+        <div class="row">
+            <div class="col-md-12 right">
                 <div class="menu_set">
                     <a href="/"><i class="fa fa-home"></i> Home</a>
                     <a href="/about"><i class="fa fa-question"></i> About</a>
+                    <a href="/pkd"><i class="fa fa-key"></i> Public Key Directory</a>
                     <a href="#/resources"><i class="fa fa-book"></i> Resources</a>
                     <a href="#/tools"><i class="fa fa-wrench"></i> Tools</a>
                 </div>

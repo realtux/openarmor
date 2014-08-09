@@ -11,14 +11,14 @@ struct string {
     size_t len;
 };
 
-void * myrealloc(void * ptr, size_t size) {
+static void * myrealloc(void * ptr, size_t size) {
     if (ptr)
         return realloc(ptr, size);
     else
         return malloc(size);
 }
 
-size_t write_result(void * ptr, size_t size, size_t nmemb, struct string * data) {
+static size_t write_result(void * ptr, size_t size, size_t nmemb, struct string * data) {
     size_t realsize = size * nmemb;
     struct string *mem = (struct string *)data;
 
