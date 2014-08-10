@@ -1,0 +1,62 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+a:link, a:visited, a:active {
+    color: #309919;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #999 !important;
+}
+
+.container {
+    max-width: 1400px;
+    width: auto;
+}
+
+.black_stuff {
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.menu_set {
+    display: block;
+    text-align: right;
+}
+
+.menu_set > a {
+    display: inline-block;
+    padding: 4px 14px;
+    color: #9DFF86;
+    font-size: 16px;
+}
+
+.menu_set > a:hover {
+    text-decoration: none;
+    color: #fff !important;
+    background: #000;
+}
+
+.green {
+    color: #64FF40;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
