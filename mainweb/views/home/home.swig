@@ -1,6 +1,6 @@
 {% extends '../master.swig' %}
 {% block content %}
-<div style="display: block; background: #0e0e0e; padding: 40px;">
+<div style="display: block; background: #0e0e0e; padding: 40px; margin-top: -20px;">
     <div class="container black_stuff">
         <div class="row">
             <div class="col-md-12 center">
@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-<div style="display: block; background: #1F1F1F; padding: 40px;">
+<div style="display: block; background: #1F1F1F; padding: 40px; margin-bottom: -20px;">
     <div class="container black_stuff">
         <div class="row">
             <div class="col-md-12 center">
