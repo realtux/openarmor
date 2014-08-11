@@ -14,7 +14,7 @@
     <link rel="SHORTCUT ICON" href="/images/fav.png">
 </head>
 <body>
-<div style="display: block; background: #1F1F1F; padding: 40px 40px 0px 40px;">
+<div style="display: block; background: #1F1F1F; padding: 40px 40px 0 40px;">
     <div class="container black_stuff">
         <div class="row">
             <div class="col-md-12">
@@ -34,6 +34,34 @@
         </div>
     </div>
 </div>
-{% block content %}{% endblock %}
+<div style="display: block; background: #fff; padding: 20px 0;">
+    {% block content %}{% endblock %}
+</div>
+<div style="display: block; background: #000; padding: 40px 40px 40px 40px; font-size: 14px;">
+    <div class="container black_stuff">
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Useful Links</strong>
+                <ul>
+                    <li><a href="https://www.eff.org" target="_blank">EFF.org</a></li>
+                    <li><a href="http://epic.org" target="_blank">EPIC.org</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <strong>Other Stuff</strong>
+                <ul>
+                    <li><a href="https://github.com/ebrian/openarmor" target="_blank">GitHub Project</a></li>
+                    <li>Statistics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
