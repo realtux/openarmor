@@ -11,6 +11,7 @@ static void render_title() {
 }
 
 static void render_menu() {
+    printf("################################################################\n");
     printf("Possible Functions:\n");
     printf("[1] Lookup an OpenArmor user\n");
     printf("[2] Quit\n");

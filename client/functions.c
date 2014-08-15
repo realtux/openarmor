@@ -6,7 +6,7 @@
 #include "map_lib.h"
 #include "utilities.h"
 
-extern enum json_type type;
+enum json_type type;
 
 json_object * oa_json_get_object(json_object * jobj, char * object_name) {
     json_object_object_foreach(jobj, key, val) {
@@ -83,9 +83,9 @@ void lookup_user() {
 
         char * publickey = oa_json_get_string(user, "publickey");
 
-        printf("----------------------------\n");
+        printf("----------------------------------------------------------------\n");
         printf("Username: %s\n", trim(buffer));
-        printf("----------------------------\n");
+        printf("----------------------------------------------------------------\n");
 
         printf("Public Key:\n");
 
@@ -100,13 +100,35 @@ void lookup_user() {
         }
 
         printf("\n");
+
+        // check for social aspects
+        char * googleplus = oa_json_get_string(user, "googleplus");
+        char * twitter = oa_json_get_string(user, "twitter");
+        char * facebook = oa_json_get_string(user, "facebook");
+
+        if (googleplus != NULL || twitter != NULL || facebook != NULL) {
+            printf("----------------------------------------------------------------\n");
+            printf("Social Identifiers:\n");
+        }
+
+        if (googleplus != NULL) {
+            printf("Google Plus - %s\n", googleplus);
+        }
+        
+        if (twitter != NULL) {
+            printf("Twitter     - %s\n", twitter);
+        }
+
+        if (facebook != NULL) {
+            printf("Facebook    - %s\n", facebook);
+        }
         //printf("%s", publickey);
 
-        printf("----------------------------\n");
+        printf("----------------------------------------------------------------\n");
     } else {
-        printf("----------------------------\n");
+        printf("----------------------------------------------------------------\n");
         printf("User \"%s\" not found\n", trim(buffer));
-        printf("----------------------------\n");
+        printf("----------------------------------------------------------------\n");
     }
 
     //printf("%s\n", json_object_to_json_string(jobj));
