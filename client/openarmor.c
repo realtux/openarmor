@@ -4,19 +4,19 @@
 
 #include "functions.h"
 
-void render_title() {
+static void render_title() {
     printf("----------------------------------------------------------------\n");
     printf("  OpenArmor.org\n");
     printf("----------------------------------------------------------------\n");
 }
 
-void render_menu() {
+static void render_menu() {
     printf("Possible Functions:\n");
     printf("[1] Lookup an OpenArmor user\n");
     printf("[2] Quit\n");
 }
 
-int main() {
+int main(void) {
     render_title();
 
     char buffer[8];

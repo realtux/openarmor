@@ -6,7 +6,7 @@
 #include "map_lib.h"
 #include "utilities.h"
 
-enum json_type type;
+extern enum json_type type;
 
 json_object * oa_json_get_object(json_object * jobj, char * object_name) {
     json_object_object_foreach(jobj, key, val) {
