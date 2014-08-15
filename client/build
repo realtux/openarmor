@@ -10,7 +10,8 @@ gcc \
     $(pkg-config --libs --cflags libcurl) \
     $(pkg-config --libs --cflags json-c) \
     -o openarmor \
-    -Wall
+    -Wall \
+    -Wextra
 
 # check for run flag
 if [[ $* == *--and-run* ]];

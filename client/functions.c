@@ -89,7 +89,7 @@ void lookup_user() {
 
         printf("Public Key:\n");
 
-        int i;
+        unsigned int i;
 
         for (i = 0; i < strlen(publickey); ++i) {
             printf("%c", publickey[i]);
