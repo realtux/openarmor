@@ -72,7 +72,42 @@ void lookup_user() {
 
     char * s = docurl(ACTION_LOOKUP_USER, params);
 
-    json_object * jobj = json_tokener_parse(s);   
+    json_object * jobj = json_tokener_parse(s);
 
-    printf("%s\n", json_object_to_json_string(jobj));
+    char * status = oa_json_get_string(jobj, "status");
+
+    if (strcmp(status, "ok") == 0) {
+        // get payload
+        json_object * payload = oa_json_get_object(jobj, "payload");
+        json_object * user = oa_json_get_object(payload, "user");
+
+        char * publickey = oa_json_get_string(user, "publickey");
+
+        printf("----------------------------\n");
+        printf("Username: %s\n", trim(buffer));
+        printf("----------------------------\n");
+
+        printf("Public Key:\n");
+
+        int i;
+
+        for (i = 0; i < strlen(publickey); ++i) {
+            printf("%c", publickey[i]);
+
+            if ((i + 1) % 64 == 0) {
+                printf("\n");
+            }
+        }
+
+        printf("\n");
+        //printf("%s", publickey);
+
+        printf("----------------------------\n");
+    } else {
+        printf("----------------------------\n");
+        printf("User \"%s\" not found\n", trim(buffer));
+        printf("----------------------------\n");
+    }
+
+    //printf("%s\n", json_object_to_json_string(jobj));
 }
