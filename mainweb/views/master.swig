@@ -14,51 +14,58 @@
     <link rel="SHORTCUT ICON" href="/images/fav.png">
 </head>
 <body>
-<div style="display: block; background: #1F1F1F; padding: 40px 40px 0 40px;">
-    <div class="container black_stuff">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 style="font-size: 46px;"><i class="fa fa-shield"></i> OpenArmor</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 right">
-                <div class="menu_set">
-                    <a href="/"><i class="fa fa-home"></i> Home</a>
-                    <a href="/about"><i class="fa fa-question"></i> About</a>
-                    <a href="/pkd"><i class="fa fa-key"></i> Public Key Directory</a>
-                    <a href="#/resources"><i class="fa fa-book"></i> Resources</a>
-                    <a href="#/tools"><i class="fa fa-wrench"></i> Tools</a>
+<div class="wrapper">
+    <div class="header">
+        <div style="display: block; background: #1F1F1F; padding: 40px 40px 0 40px;">
+            <div class="container black_stuff">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 style="font-size: 46px;"><i class="fa fa-shield"></i> OpenArmor</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 right">
+                        <div class="menu_set">
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
+                            <a href="/about"><i class="fa fa-question"></i> About</a>
+                            <a href="/pkd"><i class="fa fa-key"></i> Public Key Directory</a>
+                            <a href="#/resources"><i class="fa fa-book"></i> Resources</a>
+                            <a href="#/tools"><i class="fa fa-wrench"></i> Tools</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div style="display: block; background: #fff; padding: 20px 0;">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="push"></div>
 </div>
-<div style="display: block; background: #fff; padding: 20px 0;">
-    {% block content %}{% endblock %}
-</div>
-<div style="display: block; background: #000; padding: 40px 40px 40px 40px; font-size: 14px;">
-    <div class="container black_stuff">
-        <div class="row">
-            <div class="col-md-3">
-                <strong>Useful Links</strong>
-                <ul>
-                    <li><a href="https://www.eff.org" target="_blank">EFF.org</a></li>
-                    <li><a href="http://epic.org" target="_blank">EPIC.org</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
+<div class="footer">
+    <div style="display: block; background: #000; padding: 40px 40px 40px 40px; font-size: 14px;">
+        <div class="container black_stuff">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Useful Links</strong>
+                    <ul>
+                        <li><a href="https://www.eff.org" target="_blank">EFF.org</a></li>
+                        <li><a href="http://epic.org" target="_blank">EPIC.org</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
 
-            </div>
-            <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
 
-            </div>
-            <div class="col-md-3">
-                <strong>Other Stuff</strong>
-                <ul>
-                    <li><a href="https://github.com/ebrian/openarmor" target="_blank">GitHub Project</a></li>
-                    <li>Statistics</li>
-                </ul>
+                </div>
+                <div class="col-md-3">
+                    <strong>Other Stuff</strong>
+                    <ul>
+                        <li><a href="https://github.com/ebrian/openarmor" target="_blank">GitHub Project</a></li>
+                        <li>Statistics</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
