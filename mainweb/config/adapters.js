@@ -1,6 +1,4 @@
-module.exports.adapters = {
-    'default': 'mongo',
-
+module.exports.connections = {
     mongo: {
         module   : 'sails-mongo',
         host     : 'localhost',
