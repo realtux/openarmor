@@ -10,6 +10,8 @@
 
     <script src="http://cdn.tierlabs.com/global/jquery/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.2.22/angular-sanitize.min.js"></script>
 
     <link rel="SHORTCUT ICON" href="/images/fav.png">
 </head>
