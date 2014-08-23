@@ -5,7 +5,7 @@ module.exports = {
             .findOne({
                 username : req.body.username
             })
-            .done(function(err, user) {
+            .exec(function(err, user) {
                 res.setHeader('Content-Type', 'application/json');
 
                 // no user?
