@@ -1,8 +1,8 @@
 module.exports.controllers = {
     blueprints: {
-        actions: true,
-        rest: true,
-        shortcuts: true,
+        actions: false,
+        rest: false,
+        shortcuts: false,
         prefix: '',
         pluralize: false
     },
