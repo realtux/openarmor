@@ -1,0 +1,1 @@
+supervisor --ignore .tmp --extensions 'node,js,css,swig' app.js
