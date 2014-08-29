@@ -20,10 +20,9 @@
         <div class="col-md-4" style="margin-bottom: 40px;">
             <h2><i class="fa fa-shield"></i> What is OpenArmor?</h2>
             OpenArmor is a Florida based non-profit organization dedicated to providing <a href="/education">educational resources</a> on issues
-            such as security and encryption. In addition to educational resources, OpenArmor also provides <a href="/tools">tools made in-house
-                as well as tools from third parties</a> to help put what you've learned into practice and help you
+            such as security and encryption. In addition to educational resources, OpenArmor also provides a collection of <a href="/tools">tools from third parties</a> to help put what you've learned into practice and help you
             to communicate, share, store, and distribute anonymously and/or securely. While absolute privacy and
-            security is usually not practical, our tools will <strong style="text-decoration: underline;">severely cripple</strong> the
+            security is usually not practical, the tools we highlight here will <strong style="text-decoration: underline;">severely cripple</strong> the
             efforts of attackers whether they are a crook, hacker, or <a href="http://en.wikipedia.org/wiki/PRISM_(surveillance_program)" target="_blank">your own government</a>.
         </div>
         <div class="col-md-4" style="margin-bottom: 40px;">

@@ -30,8 +30,7 @@
                         <div class="menu_set">
                             <a href="/"><i class="fa fa-home"></i> Home</a>
                             <a href="/about"><i class="fa fa-question"></i> About</a>
-                            <a href="/pkd"><i class="fa fa-key"></i> Public Key Directory</a>
-                            <a href="#/resources"><i class="fa fa-book"></i> Resources</a>
+                            <a href="/resources"><i class="fa fa-book"></i> Resources</a>
                             <a href="#/tools"><i class="fa fa-wrench"></i> Tools</a>
                         </div>
                     </div>
@@ -51,21 +50,26 @@
                 <div class="col-md-3">
                     <strong>Useful Links</strong>
                     <ul>
-                        <li><a href="https://www.eff.org" target="_blank">EFF.org</a></li>
-                        <li><a href="http://epic.org" target="_blank">EPIC.org</a></li>
+                        <li><a href="https://www.eff.org" target="_blank">EFF</a></li>
+                        <li><a href="http://epic.org" target="_blank">EPIC</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
-
+                    <strong>Privacy</strong>
+                    <ul>
+                        <li><a href="https://www.torproject.org" target="_blank">TOR Project</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3">
-
+                    <strong>Encryption</strong>
+                    <ul>
+                        <li><a href="https://www.gnupg.org" target="_blank">GNU Privacy Guard</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3">
                     <strong>Other Stuff</strong>
                     <ul>
                         <li><a href="https://github.com/ebrian/openarmor" target="_blank">GitHub Project</a></li>
-                        <li>Statistics</li>
                     </ul>
                 </div>
             </div>
