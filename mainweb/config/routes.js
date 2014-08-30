@@ -1,6 +1,6 @@
 module.exports.routes = {
     '/'      : { view : 'home/home' },
     '/about' : { view : 'home/about' },
-
-    '/pkd' : { view : 'pkd/home'}
+    '/resources' : { view : 'home/resources' },
+    '/tools' : { view : 'home/tools' }
 };
