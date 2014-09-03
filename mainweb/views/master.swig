@@ -29,9 +29,8 @@
                     <div class="col-md-12 right">
                         <div class="menu_set">
                             <a href="/"><i class="fa fa-home"></i> Home</a>
-                            <a href="/about"><i class="fa fa-question"></i> About</a>
                             <a href="/resources"><i class="fa fa-book"></i> Resources</a>
-                            <a href="#/tools"><i class="fa fa-wrench"></i> Tools</a>
+                            <a href="/tools"><i class="fa fa-wrench"></i> Tools</a>
                         </div>
                     </div>
                 </div>
