@@ -18,23 +18,6 @@ static void render_menu() {
 }
 
 int main(void) {
-
-float input, f;
-int i;
-
-printf ("Please enter a floating point value:");
-printf ("\n");
-scanf ("%f", &input);
-
-i = (int)((input * 1000) + .5);
-
-f = i / 1000;
-
-printf ("The rounded value is %2.2f:\n", f);
-
-
-return 0;
-
     render_title();
 
     char buffer[8];
